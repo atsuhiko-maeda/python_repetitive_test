@@ -345,8 +345,42 @@ async function evaluatePython() {
     // await promise;//20250128
 }
 
-function getScoreLog(){
-    navigator.clipboard.writeText(score_log.getValue());
+// function getScoreLog(){
+//     navigator.clipboard.writeText(score_log.getValue());
+// }
+
+function getScoreLog() {
+    // テキストエリアの内容を取得
+    const text = score_log.getValue();
+    
+    // テキストが空の場合の確認
+    if (text.trim() === '') {
+        return;
+    }
+    
+    // ファイル名を取得（空の場合はデフォルト名を使用）
+    let fileName = 'score_log.txt';
+        
+    // Blobオブジェクトとしてテキストデータを作成
+    // UTF-8エンコーディングで日本語も正しく保存
+    const blob = new Blob([text], { type: 'text/plain;charset=utf-8' });
+    
+    // ダウンロード用のURLを作成
+    const url = URL.createObjectURL(blob);
+    
+    // 一時的なaタグを作成してダウンロードを実行
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = fileName;
+    document.body.appendChild(a);
+    a.click();
+    
+    // 一時的な要素とURLをクリーンアップ
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+    
+    // ダウンロード完了の通知
+    // alert(`ファイル "${fileName}" がダウンロードされました！`);
 }
 
 function setMaterial(){
