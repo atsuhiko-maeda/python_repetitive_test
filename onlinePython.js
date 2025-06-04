@@ -24,11 +24,17 @@ let detail_log = []
 let explanations = "";
 let random_seed = 0;
 
-const SETTING = JSON.parse(localStorage.getItem("SETTING"))??  {
+let SETTING = {
     'FONT_SIZE':24
     ,'THEME': 'monokai'
     ,'CODE':problem
 };
+
+// const SETTING = JSON.parse(localStorage.getItem("SETTING"))??  {
+//     'FONT_SIZE':24
+//     ,'THEME': 'monokai'
+//     ,'CODE':problem
+// };
 
 const theme_array_bright = [
     "chrome",
@@ -55,6 +61,12 @@ const theme_array_dark = [
 ];
 
 function init(){
+
+    const SETTING = JSON.parse(localStorage.getItem("SETTING"))??  {
+        'FONT_SIZE':24
+        ,'THEME': 'monokai'
+        ,'CODE':problem
+    };
 
     editor = ace.edit("editor");
     editor.getSession().setMode("ace/mode/python");
