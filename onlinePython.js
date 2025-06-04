@@ -25,7 +25,7 @@ let explanations = "";
 let random_seed = 0;
 
 const SETTING = {
-    'FONT_SIZE':24
+    'FONT_SIZE':20
     ,'THEME': 'monokai'
     ,'CODE':'problem'
 };
