@@ -26,7 +26,7 @@ let random_seed = 0;
 
 const SETTING = {
     'FONT_SIZE':20
-    ,'THEME': 'monokai'
+    ,'THEME': 'chrome'
     ,'CODE':'problem'
 };
 // const SETTING = JSON.parse(localStorage.getItem("SETTING"))??  {
