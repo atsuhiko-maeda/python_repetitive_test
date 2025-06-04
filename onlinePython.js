@@ -30,11 +30,11 @@ let SETTING = {
     ,'CODE':problem
 };
 
-// const SETTING = JSON.parse(localStorage.getItem("SETTING"))??  {
-//     'FONT_SIZE':24
-//     ,'THEME': 'monokai'
-//     ,'CODE':problem
-// };
+const SETTING = JSON.parse(localStorage.getItem("SETTING"))??  {
+    'FONT_SIZE':24
+    ,'THEME': 'monokai'
+    ,'CODE':'problem'
+};
 
 const theme_array_bright = [
     "chrome",
@@ -247,7 +247,7 @@ function init_ui(){
         if (executed)
             return;
 
-        SETTING['CODE']=editor.session.getValue();
+        // SETTING['CODE']=editor.session.getValue();
         save_settings();
 
         output.session.setValue("");
